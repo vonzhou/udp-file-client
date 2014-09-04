@@ -1,0 +1,32 @@
+
+The client chunk file and construct udp datagrams to send.
+
+TODO:
+
+1. The basic version with chunking file.(done)
+
+2. Add super feature in the first unit.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
