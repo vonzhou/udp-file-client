@@ -1,5 +1,8 @@
-cient: sha1.o recipe.o rabin.o file_transfer_client.o backup.o wrapunix.o wrapsock.o  writen.o error.o
+all:client tcp-client
+client: sha1.o recipe.o rabin.o file_transfer_client.o backup.o wrapunix.o wrapsock.o  writen.o error.o
 	gcc -o client sha1.o recipe.o rabin.o file_transfer_client.o backup.o wrapunix.o writen.o error.o  wrapsock.o  -lssl -lcrypto
+tcp-client: sha1.o recipe.o rabin.o tcp_client.o backup.o wrapunix.o wrapsock.o  writen.o error.o
+	gcc -o tcp-client sha1.o recipe.o rabin.o tcp_client.o backup.o wrapunix.o writen.o error.o  wrapsock.o  -lssl -lcrypto
 	@echo "Compiling ....\n"
 sha1.o : sha1.c global.h
 	gcc -c sha1.c
@@ -7,8 +10,10 @@ recipe.o : recipe.c global.h
 	gcc -c recipe.c
 rabin.o : rabin.c global.h
 	gcc -c rabin.c
-client.o : file_transfer_client.c global.h
+file_transfer_client.o : file_transfer_client.c global.h
 	gcc -c file_transfer_client.c
+tcp_client.o : tcp_client.c global.h
+	gcc -c tcp_client.c
 backup.o : backup.c global.h
 	gcc -c backup.c
 wrapsock.o:wrapsock.c global.h
@@ -21,4 +26,4 @@ writen.o:writen.c global.h
 	gcc -c writen.c
 
 clean :
-	-rm client *.o
+	-rm client tcp-client *.o
