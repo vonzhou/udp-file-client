@@ -1,6 +1,8 @@
 
 The client chunk file and construct udp datagrams to send.
 
+usage: ./client IP-addr filename
+
 TODO:
 
 1. The basic version with chunking file.(done)
